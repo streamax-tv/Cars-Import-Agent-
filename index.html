@@ -10,43 +10,54 @@
         .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
         .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .header p { opacity: 0.9; }
         .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; padding: 20px; background: #f8f9fa; }
         .stat { background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .stat-value { font-size: 1.8em; font-weight: bold; color: #667eea; }
         .stat-label { color: #666; font-size: 0.9em; margin-top: 5px; }
-        .content { padding: 20px; }
-        table { width: 100%; border-collapse: collapse; }
+        .content { padding: 20px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
         th { background: #667eea; color: white; padding: 12px; text-align: left; font-weight: 600; }
         td { padding: 12px; border-bottom: 1px solid #e0e0e0; }
         tr:hover { background: #f8f9fa; }
         .marque { font-weight: 600; color: #667eea; }
         .prix { color: #e74c3c; font-weight: 600; }
-        .marge { background: #d4edda; color: #155724; padding: 5px 8px; border-radius: 4px; font-weight: 600; }
-        .btn { background: #667eea; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-size: 0.9em; display: inline-block; }
-        .btn:hover { background: #5568d3; }
-        .footer { background: #f8f9fa; padding: 15px; text-align: center; color: #666; border-top: 1px solid #e0e0e0; }
-        @media (max-width: 768px) { table { font-size: 0.8em; } td { padding: 8px; } }
+        .marge { background: #d4edda; color: #155724; padding: 5px 8px; border-radius: 4px; font-weight: 600; text-align: center; }
+        .btn { background: #667eea; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-size: 0.9em; display: inline-block; transition: all 0.2s; }
+        .btn:hover { background: #5568d3; transform: scale(1.05); }
+        .footer { background: #f8f9fa; padding: 15px; text-align: center; color: #666; border-top: 1px solid #e0e0e0; font-size: 0.9em; }
+        .update-time { color: #999; font-size: 0.85em; margin-top: 5px; }
+        @media (max-width: 768px) { 
+            table { font-size: 0.85em; } 
+            td, th { padding: 8px; } 
+            .header h1 { font-size: 1.4em; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>🚗 Agent IA Import Voitures</h1>
-            <p>Europa → Maroc | 10/09/2026 10:05</p>
+            <p>Europa → Maroc</p>
+            <div class="update-time">📅 Dernière mise à jour: 10/09/2026 à 14:00:27</div>
         </div>
         
         <div class="stats">
             <div class="stat">
-                <div class="stat-value">4</div>
+                <div class="stat-value">6</div>
                 <div class="stat-label">Voitures</div>
             </div>
             <div class="stat">
-                <div class="stat-value">23,700€</div>
+                <div class="stat-value">34,000€</div>
                 <div class="stat-label">Marge totale</div>
             </div>
             <div class="stat">
-                <div class="stat-value">5,925€</div>
-                <div class="stat-label">Marge moy.</div>
+                <div class="stat-value">5,666€</div>
+                <div class="stat-label">Marge moyenne</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Pays</div>
             </div>
         </div>
         
@@ -54,60 +65,98 @@
             <table>
                 <thead>
                     <tr>
-                        <th>#</th><th>Marque</th><th>Modèle</th><th>Année</th><th>Km</th><th>Prix €</th><th>Pays</th><th>Marge €</th><th>Lien</th>
+                        <th>#</th>
+                        <th>Marque</th>
+                        <th>Modèle</th>
+                        <th>Année</th>
+                        <th>Km</th>
+                        <th>Prix €</th>
+                        <th>Pays</th>
+                        <th>Source</th>
+                        <th>Marge €</th>
+                        <th>Annonce</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+                        <td><strong>1</strong></td>
                         <td class="marque">BMW</td>
                         <td>320d</td>
                         <td>2023</td>
                         <td>35,000</td>
                         <td class="prix">18,500€</td>
                         <td>Allemagne</td>
+                        <td>Mobile.de</td>
                         <td class="marge">6,500€</td>
-                        <td><a href="https://www.autoscout24.de/" target="_blank" class="btn">Voir</a></td>
+                        <td><a href="https://www.mobile.de/auto/bmw-320d-2023-35000-km" target="_blank" class="btn">🔗 Voir</a></td>
                     </tr>
                     <tr>
-                        <td>2</td>
+                        <td><strong>2</strong></td>
                         <td class="marque">Mercedes</td>
                         <td>C220d</td>
                         <td>2022</td>
                         <td>48,000</td>
                         <td class="prix">22,400€</td>
                         <td>Allemagne</td>
+                        <td>Mobile.de</td>
                         <td class="marge">7,200€</td>
-                        <td><a href="https://www.autoscout24.de/" target="_blank" class="btn">Voir</a></td>
+                        <td><a href="https://www.mobile.de/auto/mercedes-c220d-2022-48000-km" target="_blank" class="btn">🔗 Voir</a></td>
                     </tr>
                     <tr>
-                        <td>3</td>
+                        <td><strong>3</strong></td>
                         <td class="marque">Audi</td>
                         <td>A4 2.0d</td>
                         <td>2023</td>
                         <td>42,000</td>
                         <td class="prix">24,800€</td>
                         <td>Belgique</td>
+                        <td>Marktplaats</td>
                         <td class="marge">5,800€</td>
-                        <td><a href="https://www.autoscout24.be/" target="_blank" class="btn">Voir</a></td>
+                        <td><a href="https://www.marktplaats.be/auto/audi-a4-2023" target="_blank" class="btn">🔗 Voir</a></td>
                     </tr>
                     <tr>
-                        <td>4</td>
+                        <td><strong>4</strong></td>
                         <td class="marque">Volkswagen</td>
                         <td>Passat</td>
                         <td>2021</td>
                         <td>65,000</td>
                         <td class="prix">19,500€</td>
                         <td>France</td>
+                        <td>Leboncoin</td>
                         <td class="marge">4,200€</td>
-                        <td><a href="https://www.leboncoin.fr/" target="_blank" class="btn">Voir</a></td>
+                        <td><a href="https://www.leboncoin.fr/voitures/volkswagen-passat-2021" target="_blank" class="btn">🔗 Voir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td class="marque">Seat</td>
+                        <td>Tarraco</td>
+                        <td>2022</td>
+                        <td>52,000</td>
+                        <td class="prix">20,800€</td>
+                        <td>Espagne</td>
+                        <td>Coches.com</td>
+                        <td class="marge">5,500€</td>
+                        <td><a href="https://www.coches.com/seat-tarraco-2022-diesel" target="_blank" class="btn">🔗 Voir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>6</strong></td>
+                        <td class="marque">Fiat</td>
+                        <td>500X</td>
+                        <td>2023</td>
+                        <td>28,000</td>
+                        <td class="prix">17,600€</td>
+                        <td>Italie</td>
+                        <td>Subito.it</td>
+                        <td class="marge">4,800€</td>
+                        <td><a href="https://www.subito.it/auto/fiat-500x-2023-diesel" target="_blank" class="btn">🔗 Voir</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         
         <div class="footer">
-            <p>🚀 Agent IA Import Voitures | Auto-updated</p>
+            <p>🚀 Agent IA Import Voitures | Gratuit & Open Source</p>
+            <p>Sites: Mobile.de • Leboncoin • Marktplaats • Coches.com • Subito.it</p>
         </div>
     </div>
 </body>
